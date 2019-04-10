@@ -1,0 +1,15 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+    <li>
+      	<a href="<%=request.getRequestURI()%>?whichPage=1>"><div style="font-family:monospace;width:30px;height:30px;border-radius:50%;background-color:#CCD1D1;text-align:center;line-height:30px;margin:2px;"><<</div></a>
+    </li>
+    <%for (int i=1; i<=pageNumber; i++){%>
+    	<li><a href="<%=request.getRequestURI()%>?whichPage=<%=i%>"><div style="font-family:monospace;width:30px;height:30px;border-radius:50%;background-color:#CCD1D1;text-align:center;line-height:30px;margin:2px;"><%=i%></div></a></li>
+    <%}%>
+    <li class="page-item">
+      	<a href="<%=request.getRequestURI()%>?whichPage=<%=pageNumber%>"><div style="font-family:monospace;width:30px;height:30px;border-radius:50%;background-color:#CCD1D1;text-align:center;line-height:30px;margin:2px;">>></div></a>
+    </li>
+  </ul>
+</nav>

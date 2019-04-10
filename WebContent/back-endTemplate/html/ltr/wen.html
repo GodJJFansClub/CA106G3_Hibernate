@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+   
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <title>Nice admin Template - The Ultimate Multipurpose admin template</title>
+    
+    <link href="../../dist/css/style.min.css" rel="stylesheet">
+   
+</head>
+
+<body>
+    
+    
+                    <div class="col">
+                        <div class="card">
+                            
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">菜色名稱:</th>
+											<th scope="col">菜色照片:</th>
+											<th scope="col">菜色介紹:</th>
+											<th scope="col">菜色價格:</th>
+											<th scope="col">審核:</th>
+                                        
+                                    </thead>
+                                    <tbody>
+                                        
+                                            <td scope="row">${dishVO.dish_name}</td>
+                                            
+                                        
+                                            <td scope="row"><c:if test="${not empty dishVO.dish_pic}">
+														<img
+															src="<%=request.getContextPath()%>/dish/dish.do?dish_ID=${dishVO.dish_ID}"
+															width="300" height="200">
+													</c:if> <c:if test="${empty dishVO.dish_pic}">
+														<img src="<%=request.getContextPath()%>/images/null2.jpg"
+															width="300" height="200">
+													</c:if></td>
+                                            
+                                        
+                                            <td scope="row">${dishVO.dish_resume}</td>
+                                           
+                                        
+                                            <td scope="row">${dishVO.dish_price}</td>
+                                           
+                                       
+                                            <td scope="row"><FORM METHOD="post" ACTION="<%=request.getContextPath() %>/dish/dish.do">
+													<input type="submit" value="審核"> <input
+														type="hidden" name="dish_ID" value="${dishVO.dish_ID}">
+													<input type="hidden" name="action"
+														value="getOne_For_Update">
+												</FORM></td>
+                                           
+                                       
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                   
+                
+  =
+    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+    <!--Wave Effects -->
+   
+</body>
+
+</html>

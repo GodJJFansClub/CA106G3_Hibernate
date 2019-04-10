@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.cust.model.CustVO" table="CUST" >
+        
+        <id name="cust_ID" column="CUST_ID">
+            <generator class="com.genterator.CustGenerator"/>
+        </id>
+        
+        
+        <property name="cust_acc" column="CUST_ACC" />
+        <property name="cust_pwd" column="CUST_PWD" />
+        <property name="cust_name" column="CUST_NAME" />
+        <property name="cust_sex" column="CUST_SEX" />
+        <property name="cust_tel" column="CUST_TEL" />
+        <property name="cust_addr" column="CUST_ADDR" />
+        <property name="cust_pid" column="CUST_PID" />
+        <property name="cust_mail" column="CUST_MAIL" />
+        <property name="cust_brd" column="CUST_BRD" />
+        <property name="cust_reg" column="CUST_REG" />
+        <property name="cust_pic" column="CUST_PIC" />
+        <property name="cust_status" column="CUST_STATUS" />
+        <property name="cust_niname" column="CUST_NINAME" />
+        
+    </class>
+</hibernate-mapping>

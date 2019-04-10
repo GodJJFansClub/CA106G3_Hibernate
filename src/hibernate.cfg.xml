@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+
+	<session-factory>
+        
+        <!-- 連線池c3p0設定-->
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>
+		<property name="hibernate.connection.username">COOKGOD</property>
+		<property name="hibernate.connection.password">123456</property>       
+
+		<!-- SQL方言,以下使用Oracle -->
+		<property name="hibernate.dialect">org.hibernate.dialect.OracleDialect</property>
+
+		<!-- 是否要顯示實際操作資料庫時的SQL -->
+		<property name="hibernate.show_sql">true</property>
+
+        <!-- Disable the second-level cache -->
+        <property name="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!-- 交易管理類型, 以下使用JDBC Transaction -->
+		<!-- Hibernate5取消了hibernate.transaction.factory_class，改為hibernate.transaction.coordinator_class配置 -->
+		<!-- Hibernate-provided TransactionCoordinatorBuilder implementations 
+             jdbc (the default) - Manages transactions via calls to java.sql.Connection
+             jta - Manages transactions via JTA -->
+		<property name="hibernate.transaction.coordinator_class">jdbc</property>
+        
+        <!-- Enable Hibernate's automatic session context management -->
+		<property name="hibernate.current_session_context_class">thread</property>
+
+        <!-- 將SQL指令進行格式化後再輸出 -->
+        <property name="hibernate.format_sql">true</property>
+        
+        
+        <!-- ●根据需要自動創建資料庫表格..等 -->
+        <!-- validate:    加載hibernate時，    自動驗證->資料庫表格結構 -->
+        <!-- create:      每次加載hibernate時，自動重新創建->資料庫表格結構 -->
+        <!-- create-drop: 每次加載hibernate時，自動重新創建->資料庫表格結構 -->
+        <!--              每次退出hibernate時，自動刪除->資料庫表格結構 -->
+        <!-- update:      加載hibernate時，    自動更新->資料庫表格結構 -->
+
+        <!-- 注意: -->
+        <!-- 1.在網站發布正式版本的時候，對資料庫現有的資料或表結構進行自動更新是很危險的。 -->
+        <!--   應該由DBA通過手工的方式進行後台的資料庫操作。 -->
+        <!-- 2.none 為預設 -->
+        <property name="hbm2ddl.auto">none</property>
+
+        <!-- 告訴Hibernate不是使用預設的單純JDBC連線池 (這是Hibernate4開始有的新設定) -->
+        <!-- 目前使用c3p0連線池，才加入此設定 -->
+        
+
+		<!--Java物件與資料庫表格的映射檔 -->
+		<mapping resource="com/food/model/food.hbm.xml" />
+		<mapping resource="com/cust/model/cust.hbm.xml"/>
+		<mapping resource="com/foodSup/model/foodSup.hbm.xml"/>
+		<mapping class="com.foodMall.model.FoodMallVO"/>
+
+	</session-factory>
+	
+</hibernate-configuration>

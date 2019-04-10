@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.foodSup.model.FoodSupVO" table="FOOD_SUP" >
+        
+        <id name="food_sup_ID" column="FOOD_SUP_ID">
+            
+        </id>
+        
+        
+        <property name="food_sup_name" column="FOOD_SUP_NAME" />
+        <property name="food_sup_tel" column="FOOD_SUP_TEL" />
+        <property name="food_sup_status" column="FOOD_SUP_STATUS" />
+        <property name="food_sup_resume" column="FOOD_SUP_RESUME" />
+        
+        
+    </class>
+</hibernate-mapping>
